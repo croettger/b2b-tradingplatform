@@ -10,8 +10,8 @@ const devConfig=Object.assign({}, common, {
         plugins: [HTMLWebpackPluginConfig,
             new webpack.NoErrorsPlugin(),
             new webpack.DefinePlugin({
-                NODE_ENV: 'production',
-                API_SERVER_URL: 'http://localhost:3000'
+                NODE_ENV: '"production"',
+                API_SERVER_URL: '"http://localhost:3000"'
             })
         ]
     }
