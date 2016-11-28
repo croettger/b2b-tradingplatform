@@ -1,4 +1,10 @@
 import React from 'react';
-export default function Welcome(props) {
-    return <h1>Hello, {props.name}</h1>;
+export default class Welcome extends React.Component {
+    render() {
+        return <div>
+                <h1>Hello YOU, {this.props.name}</h1><br/>
+                <p>Noch ein weiteres Element</p>
+                </div>;
+    }
+
 }

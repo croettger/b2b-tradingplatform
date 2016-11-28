@@ -7,7 +7,13 @@ var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 const webpack = require('webpack');
 const common = require('./webpack.config.common');
 const devConfig=Object.assign({}, common, {
+        entry: [
+            'eventsource-polyfill',
+            'webpack-hot-middleware/client',
+            './src/client/main.js'
+        ],
         plugins: [HTMLWebpackPluginConfig,
+            new webpack.HotModuleReplacementPlugin(),
             new webpack.NoErrorsPlugin(),
             new webpack.DefinePlugin({
                 NODE_ENV: '"production"',
