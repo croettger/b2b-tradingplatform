@@ -1,7 +1,7 @@
 {
   "name": "b2btradingplatform",
   "version": "1.0.0",
-  "description": "web2 Project",
+  "description": "Projekt für das Fach Web-Engineering 2 - Master FH Dortmund",
   "main": "webpack.config.common.js",
   "directories": {
     "doc": "doc"
@@ -14,9 +14,9 @@
     "type": "git",
     "url": "git+https://huigc001@bitbucket.org/trickynation/b2btradingplatform.git"
   },
-  "author": "",
+  "author": "Christoph Roettger #croettger",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/trickynation/b2btradingplatform#readme",
+  "homepage": "https://github.com/croettger/b2b-tradingplatform#readme",
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-eslint": "^7.1.0",
@@ -32,8 +32,6 @@
     "eventsource-polyfill": "^0.9.6",
     "hapi-webpack-plugin": "^1.3.0",
     "html-webpack-plugin": "^2.24.1",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
     "webpack": "^1.13.3",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-hot-middleware": "^2.13.2"
