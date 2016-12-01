@@ -7,7 +7,6 @@ export default class LabelInput extends React.Component {
         return <div>
             <label htmlFor="label">{this.props.labelTitle}</label>
             <br/>
-            <h2>Der Westen</h2>
             <MuiThemeProvider>
                 <TextField id="textfield" />
             </MuiThemeProvider>
