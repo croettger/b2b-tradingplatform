@@ -10,8 +10,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import AutoCompleteTextField from './AutoCompleteTextField';
 
-
-
 export default class Navigation extends React.Component {
 
     constructor(props) {
@@ -24,9 +22,12 @@ export default class Navigation extends React.Component {
     handleChange = (event, index, value) => this.setState({value});
 
     render() {
+        const paperStyle = {
+            marginBottom: '10px', /* 10px Abstand zwischen Navi und Body */
+        };
         return (
             <MuiThemeProvider>
-            <Toolbar>
+            <Toolbar style={paperStyle}>
                 <AutoCompleteTextField/>
                 <ToolbarGroup firstChild={true}>
                     <DropDownMenu value={this.state.value} onChange={this.handleChange}>
