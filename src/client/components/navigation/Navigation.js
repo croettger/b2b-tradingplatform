@@ -7,16 +7,12 @@ import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-mo
 import AccountIcon from 'material-ui/svg-icons/action/account-circle';
 import ShoppingCartIcon from 'material-ui/svg-icons/action/add-shopping-cart';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import AutoCompleteTextField from '../../AutoCompleteTextField';
 import SearchIcon from 'material-ui/svg-icons/action/search';
 import Paper from 'material-ui/Paper';
-import {
-    cyan500, cyan700,
-    pinkA200,
-    grey100, grey300, grey400, grey500,
-    white, darkBlack, fullBlack,
-} from 'material-ui/styles/colors';
+import {cyan500} from 'material-ui/styles/colors';
 
 export default class Navigation extends React.Component {
 
@@ -29,30 +25,38 @@ export default class Navigation extends React.Component {
 
     render() {
 
-        const backgroundColor = {color:cyan500};
-        const titleColor = {color:white};
+        const muiTheme = getMuiTheme({
+            toolbar: {
+                backgroundColor: '#efefef'
+            },
+        });
+        const backgroundColor = {color: cyan500};
+        const firstElement = {marginLeft: 20};
+        const lastElement = {marginRight: 20};
+        const titleColor = {color: cyan500, firstElement};
+        const marginComponents = {};
 
         return (
-            <MuiThemeProvider>
+            <MuiThemeProvider muiTheme={muiTheme}>
                 <Paper zDepth={1}>
-                    <Toolbar style={backgroundColor}>
+                    <Toolbar>
                         <ToolbarGroup firstChild={true}>
                             <ToolbarTitle style={titleColor} text={this.props.title}/>
                         </ToolbarGroup>
-                        <ToolbarGroup>
+                        <ToolbarGroup style={marginComponents}>
                             <AutoCompleteTextField hintText="Produktsuche"/>
-                            <FontIcon><SearchIcon /></FontIcon>
+                            <SearchIcon />
                         </ToolbarGroup>
                         <ToolbarGroup lastChild={true}>
                             <IconButton><ShoppingCartIcon/></IconButton>
                             <AccountIcon />
                             <p>BenutzerXY</p>
-                            <IconMenu
-                                iconButtonElement={
-                                    <IconButton touch={true}>
-                                        <NavigationExpandMoreIcon />
-                                    </IconButton>
-                                }
+                            <IconMenu style={lastElement}
+                                      iconButtonElement={
+                                          <IconButton touch={true}>
+                                              <NavigationExpandMoreIcon />
+                                          </IconButton>
+                                      }
                             >
                                 <MenuItem primaryText="Anmelden"/>
                                 <MenuItem primaryText="Ausloggen"/>
