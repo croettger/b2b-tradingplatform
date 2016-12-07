@@ -12,7 +12,7 @@ import Register from './components/registration/Register';
 //Wird für das Aufklappen von Menüs verwendet z.B in Navigation.js
 injectTapEventPlugin();
 
-ReactDOM.render(<Navigation title="b2b"/>, document.getElementById('header'));
+ReactDOM.render(<Navigation title="B2B-TradingPlatform"/>, document.getElementById('header'));
  ReactDOM.render(<Login />, document.getElementById('anmelden'));
 // ReactDOM.render(<BottomNavi />, document.getElementById('footer'));
 // ReactDOM.render(<LabelInput labelTitle="Ein Label:"/>, document.getElementById('eingabe'));

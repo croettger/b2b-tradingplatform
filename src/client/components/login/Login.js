@@ -38,9 +38,9 @@ export default class Login extends React.Component {
                     <h2>Anmelden</h2>
                     <LabelInput labelTitle="Email-Adresse" labelText="Bitte Email-Adresse eingeben"></LabelInput>
                     <LabelInputPass labelTitle="Passwort" labelText="Bitte ein Passwort eingeben"></LabelInputPass>
-                    <RaisedButton label="Anmelden" primary='true' style={style}/>
+                    <RaisedButton label="Anmelden" primary={true} style={style}/>
                     <p style={style}>----- Neu bei b2b? -----</p>
-                    <RaisedButton label="Registrieren" primary='true' style={style}/>
+                    <RaisedButton label="Registrieren" primary={true} style={style}/>
                 </Paper>
             </MuiThemeProvider>
         </div>

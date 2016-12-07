@@ -11,7 +11,12 @@ import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui
 import AutoCompleteTextField from '../../AutoCompleteTextField';
 import SearchIcon from 'material-ui/svg-icons/action/search';
 import Paper from 'material-ui/Paper';
-
+import {
+    cyan500, cyan700,
+    pinkA200,
+    grey100, grey300, grey400, grey500,
+    white, darkBlack, fullBlack,
+} from 'material-ui/styles/colors';
 
 export default class Navigation extends React.Component {
 
@@ -24,19 +29,21 @@ export default class Navigation extends React.Component {
 
     render() {
 
+        const backgroundColor = {color:cyan500};
+        const titleColor = {color:white};
+
         return (
             <MuiThemeProvider>
                 <Paper zDepth={1}>
-                    <Toolbar >
-                        <ToolbarGroup>
-                            <ToolbarTitle text={this.props.title}/>
-                            <ToolbarSeparator/>
+                    <Toolbar style={backgroundColor}>
+                        <ToolbarGroup firstChild={true}>
+                            <ToolbarTitle style={titleColor} text={this.props.title}/>
                         </ToolbarGroup>
                         <ToolbarGroup>
                             <AutoCompleteTextField hintText="Produktsuche"/>
                             <FontIcon><SearchIcon /></FontIcon>
                         </ToolbarGroup>
-                        <ToolbarGroup>
+                        <ToolbarGroup lastChild={true}>
                             <IconButton><ShoppingCartIcon/></IconButton>
                             <AccountIcon />
                             <p>BenutzerXY</p>
