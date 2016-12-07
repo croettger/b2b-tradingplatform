@@ -19,20 +19,6 @@ export default class Login extends React.Component {
             display: 'block'
         };
 
-
-        return <div>
-            <MuiThemeProvider>
-                <Paper id="paper" zDepth={5} style={paperStyle}>
-                    <h2>Anmelden</h2>
-                    <LabelInput labelTitle="Email-Adresse" labelText="Please input your e-mail"></LabelInput>
-                    <LabelInputPass labelTitle="Passwort" labelText="Please input your Password"></LabelInputPass>
-                    <RaisedButton label="Anmelden" primary='true' style={style}/>
-                    <p style={style}>----- Neu bei b2b? -----</p>
-                    <RaisedButton label="Registrieren" primary='true' style={style}/>
-                </Paper>
-            </MuiThemeProvider>
-        </div>
-
         // Styling für den Paper
         const paperStyle = {
             position: 'relative',
@@ -41,10 +27,25 @@ export default class Login extends React.Component {
             marginLeft: '-150px',
             left: '50%', /* in die Mitte verschieben */
             display: 'inline-block',
-            borderRadius: '10px', // abgerundete Ecken
+            // borderRadius: '10px', // abgerundete Ecken
             backgroundColor: '#efefef', // grauer Hintergrund
             padding: '10px',  // Innenabstand
         };
+
+        return <div>
+            <MuiThemeProvider>
+                <Paper id="paper" zDepth={5} style={paperStyle}>
+                    <h2>Anmelden</h2>
+                    <LabelInput labelTitle="Email-Adresse" labelText="Bitte Email-Adresse eingeben"></LabelInput>
+                    <LabelInputPass labelTitle="Passwort" labelText="Bitte ein Passwort eingeben"></LabelInputPass>
+                    <RaisedButton label="Anmelden" primary='true' style={style}/>
+                    <p style={style}>----- Neu bei b2b? -----</p>
+                    <RaisedButton label="Registrieren" primary='true' style={style}/>
+                </Paper>
+            </MuiThemeProvider>
+        </div>
+
+
 
 
     }
