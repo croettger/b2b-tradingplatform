@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import AutoComplete from 'material-ui/AutoComplete';
-import Loup from './icons/Loup';
+
 
 export default class AutoCompleteTextField extends React.Component {
 
@@ -28,15 +28,12 @@ export default class AutoCompleteTextField extends React.Component {
 
     render() {
         return (
-            <div>
                 <AutoComplete
-                    hintText="Suche"
+                    hintText={this.props.hintText}
                     dataSource={this.state.dataSource}
                     onUpdateInput={this.handleUpdateInput}
-                    fullWidth={true}
-                />
-                <Loup/>
-            </div>
+                    fullWidth={false}
+                    />
         );
     }
 }
