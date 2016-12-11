@@ -1,16 +1,15 @@
 /**
- * Created by Christoph on 01.12.2016.
- * Edited by Igor Stellmach on 05.12.2016.
+ * Created by Igor Stellmach on 05.12.2016.
  */
 import React from 'react';
 import LabelInput from '../../LabelInput';
-import LabelInputPass from '../../LabelInputPass';
 import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
 
 //Komponente für die Anmeldung
 export default class Login extends React.Component {
+
     render() {
         // Styling für die Buttons
         const style = {
@@ -27,7 +26,7 @@ export default class Login extends React.Component {
             marginLeft: '-150px',
             left: '50%', /* in die Mitte verschieben */
             display: 'inline-block',
-            // borderRadius: '10px', // abgerundete Ecken
+            borderRadius: '10px', // abgerundete Ecken
             backgroundColor: '#efefef', // grauer Hintergrund
             padding: '10px',  // Innenabstand
         };
@@ -36,17 +35,13 @@ export default class Login extends React.Component {
             <MuiThemeProvider>
                 <Paper id="paper" zDepth={5} style={paperStyle}>
                     <h2>Anmelden</h2>
-                    <LabelInput labelTitle="Email-Adresse" labelText="Bitte Email-Adresse eingeben"></LabelInput>
-                    <LabelInputPass labelTitle="Passwort" labelText="Bitte ein Passwort eingeben"></LabelInputPass>
+                    <LabelInput labelTitle="Login" labelText="Bitte Email-Adresse eingeben"></LabelInput>
+                    <LabelInput labelTitle="Passwort" labelText="Bitte ein Passwort eingeben" type="password"></LabelInput>
                     <RaisedButton label="Anmelden" primary={true} style={style}/>
                     <p style={style}>----- Neu bei b2b? -----</p>
                     <RaisedButton label="Registrieren" primary={true} style={style}/>
                 </Paper>
             </MuiThemeProvider>
         </div>
-
-
-
-
     }
 }
