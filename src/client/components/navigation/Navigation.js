@@ -58,9 +58,9 @@ export default class Navigation extends React.Component {
                                           </IconButton>
                                       }
                             >
-                                <MenuItem primaryText="Anmelden"/>
-                                <MenuItem primaryText="Ausloggen"/>
-                                <MenuItem primaryText="Mein Profil"/>
+                                <MenuItem primaryText="Anmelden" href="#/login" />
+                                <MenuItem primaryText="Ausloggen" href="#/logout"/>
+                                <MenuItem primaryText="Mein Profil" href="#/profil"/>
                             </IconMenu>
                         </ToolbarGroup>
                     </Toolbar>
