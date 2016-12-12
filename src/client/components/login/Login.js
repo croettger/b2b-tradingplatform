@@ -6,6 +6,7 @@ import LabelInput from '../../LabelInput';
 import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
+import {Link} from 'react-router'
 
 //Komponente für die Anmeldung
 export default class Login extends React.Component {
@@ -39,7 +40,7 @@ export default class Login extends React.Component {
                     <LabelInput labelTitle="Passwort" labelText="Bitte ein Passwort eingeben" type="password"></LabelInput>
                     <RaisedButton label="Anmelden" primary={true} style={style}/>
                     <p style={style}>----- Neu bei b2b? -----</p>
-                    <RaisedButton label="Registrieren" primary={true} style={style}/>
+                    <RaisedButton label="Registrieren" primary={true} href="#/register" style={style}/>
                 </Paper>
             </MuiThemeProvider>
         </div>

@@ -43,7 +43,7 @@ export default class Register extends React.Component
                     <LabelInput labelTitle="Noch mal Passwort" labelText="Please input your Password again" type="password"></LabelInput>
                     <RaisedButton label="Konto erstellen" primary = 'true' style={style}/>
                     <p style={style}>Sie haben bereits ein Konto?</p>
-                    <RaisedButton label="Anmelden" primary = 'true' style={style}/>
+                    <RaisedButton label="Anmelden" primary = 'true' href="#/login" style={style}/>
                 </Paper>
             </MuiThemeProvider>
         </div>
