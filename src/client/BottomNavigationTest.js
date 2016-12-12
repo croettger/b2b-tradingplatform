@@ -42,7 +42,7 @@ export default class BottomNavigationTest extends React.Component {
 
         return (
             <MuiThemeProvider>
-                 <Paper style={paperStyle}>
+                 <Paper zDepth={1}>
                     <BottomNavigation style={hintergrund} selectedIndex={this.state.selectedIndex}>
                         <BottomNavigationItem
                             label="Profil"

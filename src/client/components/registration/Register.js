@@ -22,20 +22,13 @@ export default class Register extends React.Component
 
         // Styling für den Paper
         const paperStyle = {
-            position: 'relative',
-            marginTop: '50px',
-            marginBottom: '50px',
-            marginLeft: '-150px',
-            left:'50%',
-            display: 'inline-block',
-            borderRadius: '10px', // abgerundete Ecken
             backgroundColor:'#efefef', // grauer Hintergrund
             padding: '10px',  // Innenabstand
         };
 
         return <div>
             <MuiThemeProvider>
-                <Paper id="paper" zDepth={5} style={paperStyle}>
+                <Paper id="paper" zDepth={2} style={paperStyle}>
                     <h2>Registrieren</h2>
                     <LabelInput labelTitle="Ihr Name" labelText="Please input your name"></LabelInput>
                     <LabelInput labelTitle="Email-Adresse" labelText="Please input your e-mail"></LabelInput>

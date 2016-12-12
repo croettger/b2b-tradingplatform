@@ -12,7 +12,7 @@ import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui
 import AutoCompleteTextField from '../../AutoCompleteTextField';
 import SearchIcon from 'material-ui/svg-icons/action/search';
 import Paper from 'material-ui/Paper';
-import {cyan500} from 'material-ui/styles/colors';
+import {Link} from 'react-router';
 
 import styles from './navigation.css.js';
 
@@ -31,19 +31,21 @@ export default class Navigation extends React.Component {
             toolbar: {
                 backgroundColor: '#00BCD4',
                 margin: 0,
-                width:'100%'
+                width: '100%'
             },
         });
-        const marginComponents = {};
+        const textDeco = {textDecoration: 'none'};
 
         return (
             <MuiThemeProvider muiTheme={muiTheme}>
                 <Paper zDepth={1}>
                     <Toolbar>
                         <ToolbarGroup firstChild={true}>
-                            <ToolbarTitle style={styles.titleColor} text={this.props.title}/>
+                            <a href="#/register" style={textDeco}>
+                                <ToolbarTitle style={styles.titleColor} text={this.props.title}/>
+                            </a>
                         </ToolbarGroup>
-                        <ToolbarGroup style={marginComponents}>
+                        <ToolbarGroup>
                             <AutoCompleteTextField hintText="Produktsuche"/>
                             <SearchIcon />
                         </ToolbarGroup>
@@ -58,7 +60,7 @@ export default class Navigation extends React.Component {
                                           </IconButton>
                                       }
                             >
-                                <MenuItem primaryText="Anmelden" href="#/login" />
+                                <MenuItem primaryText="Anmelden" href="#/login"/>
                                 <MenuItem primaryText="Ausloggen" href="#/logout"/>
                                 <MenuItem primaryText="Mein Profil" href="#/profil"/>
                             </IconMenu>
