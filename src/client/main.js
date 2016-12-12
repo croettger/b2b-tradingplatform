@@ -8,7 +8,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import Login from './components/login/Login';
 import BottomNavigationTest from './BottomNavigationTest';
 import Register from './components/registration/Register';
-
+import CreateProduct from './components/product/Produkt';
 const history = createHashHistory({ queryKey: false });
 
 injectTapEventPlugin();
@@ -21,4 +21,5 @@ const router = <Router history={history}>
 
 ReactDOM.render(<Navigation title="B2B-Trading Platform"/>, document.getElementById('header'));
 ReactDOM.render(router, document.getElementById('mountingPoint'))
+// ReactDOM.render(<CreateProduct/>, document.getElementById('mountingPoint'));
 ReactDOM.render(<BottomNavigationTest/>, document.getElementById('footer'));
