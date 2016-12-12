@@ -3,13 +3,12 @@
  */
 import React from 'react';
 import LabelInput from '../../LabelInput';
-import { blue500} from 'material-ui/styles/colors';
 
 export default class Address extends React.Component {
 
     constructor(props){
         super(props);
-        this.state={title: props.labelTitle,head: props.text}// prints out whatever is inside props
+        this.state={title: props.labelTitle,head: props.text}
     }
 
     render() {
@@ -17,11 +16,7 @@ export default class Address extends React.Component {
         let head=this.state.head;
 
         // Styling für den Border
-        const borderStyle = {border:'1px solid',height: '30px',marginTop: '33px'};
-        const strasseStyle={width: '45%',  marginBottom: '-75px'};
-        const nrStyle={width: '14%',marginLeft: '200px'};
-        const plzStyle={width: '15%',  marginBottom: '-75px'};
-        const stadtStyle={width: '45%',marginLeft: '78px'};
+        const borderStyle = {border:'1px solid',height: '25px',marginTop: '15px'};
 
         return  <div>
             <font size="4">
@@ -30,13 +25,16 @@ export default class Address extends React.Component {
                 </strong>
             </font><br/>
 
-            <LabelInput labelTitle={title} labelText={title} floatingLabelStyle={{color: '#000000'}} floatingLabelFocusStyle={{color: blue500}} underlineShow={false} inputStyle={borderStyle}></LabelInput>
-            <LabelInput labelTitle="Strasse" labelText="Strasse" floatingLabelStyle={{color: '#000000'}} floatingLabelFocusStyle={{color: blue500}} underlineShow={false} inputStyle={borderStyle} style ={strasseStyle}></LabelInput>
-            <LabelInput labelTitle="Nr." labelText="Nr." floatingLabelStyle={{color: '#000000'}} floatingLabelFocusStyle={{color: blue500}} underlineShow={false} inputStyle={borderStyle} style ={nrStyle}></LabelInput>
-            <LabelInput labelTitle="PLZ" labelText="PLZ" floatingLabelStyle={{color: '#000000'}} floatingLabelFocusStyle={{color: blue500}} underlineShow={false} inputStyle={borderStyle} style ={plzStyle}></LabelInput>
-            <LabelInput labelTitle="Stadt" labelText="Stadt" floatingLabelStyle={{color: '#000000'}} floatingLabelFocusStyle={{color: blue500}} underlineShow={false} inputStyle={borderStyle} style ={stadtStyle}></LabelInput>
-            <LabelInput labelTitle="Land" labelText="Land" floatingLabelStyle={{color: '#000000'}} floatingLabelFocusStyle={{color: blue500}} underlineShow={false} inputStyle={borderStyle}></LabelInput>
-
+            <LabelInput labelTitle={title} labelText={title} underlineShow={false} inputStyle={borderStyle}></LabelInput>
+            <div style={{display: 'flex'}}>
+                <LabelInput style={{width: '190px'}} labelTitle="Strasse" labelText="Strasse" underlineShow={false} inputStyle={borderStyle}></LabelInput>
+                <LabelInput style={{width: '60px', marginLeft: '5px'}} labelTitle="Nr." labelText="Nr." underlineShow={false} inputStyle={borderStyle}></LabelInput>
+            </div>
+            <div style={{display: 'flex'}}>
+                <LabelInput style={{width: '190px'}} labelTitle="Stadt" labelText="Stadt" underlineShow={false} inputStyle={borderStyle}></LabelInput>
+                <LabelInput style={{width: '60px', marginLeft: '5px'}} labelTitle="PLZ" labelText="PLZ" underlineShow={false} inputStyle={borderStyle}></LabelInput>
+            </div>
+            <LabelInput labelTitle="Land" labelText="Land" underlineShow={false} inputStyle={borderStyle}></LabelInput>
         </div>
     }
 }
