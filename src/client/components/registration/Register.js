@@ -4,7 +4,6 @@
 
 import React from 'react';
 import LabelInput from '../../LabelInput';
-import LabelInputPass from '../../LabelInputPass';
 import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
@@ -36,16 +35,15 @@ export default class Register extends React.Component
 
         return <div>
             <MuiThemeProvider>
-                <Paper id="paper" zDepth={5}>
                 <Paper id="paper" zDepth={5} style={paperStyle}>
                     <h2>Registrieren</h2>
                     <LabelInput labelTitle="Ihr Name" labelText="Please input your name"></LabelInput>
                     <LabelInput labelTitle="Email-Adresse" labelText="Please input your e-mail"></LabelInput>
-                    <LabelInputPass labelTitle="Passwort" labelText="Please input your Password"></LabelInputPass>
-                    <LabelInputPass labelTitle="Noch mal Passwort" labelText="Please input your Password again"></LabelInputPass>
+                    <LabelInput labelTitle="Passwort" labelText="Please input your Password" type="password"></LabelInput>
+                    <LabelInput labelTitle="Noch mal Passwort" labelText="Please input your Password again" type="password"></LabelInput>
                     <RaisedButton label="Konto erstellen" primary = 'true' style={style}/>
                     <p style={style}>Sie haben bereits ein Konto?</p>
-                </Paper>
+                    <RaisedButton label="Anmelden" primary = 'true' style={style}/>
                 </Paper>
             </MuiThemeProvider>
         </div>

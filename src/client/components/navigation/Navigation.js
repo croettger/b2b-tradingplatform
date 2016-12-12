@@ -14,6 +14,8 @@ import SearchIcon from 'material-ui/svg-icons/action/search';
 import Paper from 'material-ui/Paper';
 import {cyan500} from 'material-ui/styles/colors';
 
+import styles from './navigation.css.js';
+
 export default class Navigation extends React.Component {
 
     constructor(props) {
@@ -30,10 +32,6 @@ export default class Navigation extends React.Component {
                 backgroundColor: '#efefef'
             },
         });
-        const backgroundColor = {color: cyan500};
-        const firstElement = {marginLeft: 20};
-        const lastElement = {marginRight: 20};
-        const titleColor = {color: cyan500, firstElement};
         const marginComponents = {};
 
         return (
@@ -41,7 +39,7 @@ export default class Navigation extends React.Component {
                 <Paper zDepth={1}>
                     <Toolbar>
                         <ToolbarGroup firstChild={true}>
-                            <ToolbarTitle style={titleColor} text={this.props.title}/>
+                            <ToolbarTitle style={styles.titleColor} text={this.props.title}/>
                         </ToolbarGroup>
                         <ToolbarGroup style={marginComponents}>
                             <AutoCompleteTextField hintText="Produktsuche"/>
@@ -51,7 +49,7 @@ export default class Navigation extends React.Component {
                             <IconButton><ShoppingCartIcon/></IconButton>
                             <AccountIcon />
                             <p>BenutzerXY</p>
-                            <IconMenu style={lastElement}
+                            <IconMenu className={styles.lastElement}
                                       iconButtonElement={
                                           <IconButton touch={true}>
                                               <NavigationExpandMoreIcon />
