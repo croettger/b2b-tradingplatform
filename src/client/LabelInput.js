@@ -30,7 +30,7 @@ export default class LabelInput extends React.Component {
 
     render() {
         return <div>
-            <label htmlFor="label" style={{color: '#006064'}}>{this.props.labelTitle}</label><br/>
+            <label htmlFor="label" style={this.props.style}>{this.props.labelTitle}</label><br/>
             <MuiThemeProvider>
                 <TextField id="textfield"
                            hintText={this.props.labelText}      // Hinweis in dem Textfield
@@ -43,7 +43,12 @@ export default class LabelInput extends React.Component {
                             * Die isNaN-Funktion prüft dabei auch noch, ob Parameter maxLength gesetzt wurde(bei true --> NaN).
                             * Ist maxLength nicht gesetzt so wird die Eigenschaft floatingLabelText garnicht aktiv!*/
                            floatingLabelText={this.getCharsRemaining()==this.props.maxLength || isNaN(this.props.maxLength) ? '' : 'Noch ' + this.getCharsRemaining() + ' zeichen: ' }
-
+                           floatingLabelStyle={this.props.floatingLabelStyle}
+                           floatingLabelFocusStyle={this.props.floatingLabelFocusStyle}
+                           underlineShow={this.props.underlineShow}
+                           inputStyle={this.props.inputStyle}
+                           style={this.props.style}
+                           //style ={this.props.style}
                            /* Eigenschaften des mehrzeiligen TextFields. Dafür muss multiLine = true gesetzt werden.
                             * Mit rows kann Anzahl der sichtbaren Zeilen angegeben werden.
                             * textareaStyle funktioniert nur wenn multiLine = true ist und ist für Styling zuständig!!!*/

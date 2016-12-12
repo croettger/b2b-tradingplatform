@@ -40,10 +40,12 @@
     "babel-polyfill": "^6.16.0",
     "babel-register": "^6.18.0",
     "hapi": "^15.2.0",
+    "history": "^2.0.1",
     "inert": "^4.0.2",
     "material-ui": "^0.16.4",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
+    "react-router": "^2.1.0",
     "react-tap-event-plugin": "^2.0.1"
   }
 }
