@@ -29,7 +29,9 @@ export default class Navigation extends React.Component {
 
         const muiTheme = getMuiTheme({
             toolbar: {
-                backgroundColor: '#efefef'
+                backgroundColor: '#00BCD4',
+                margin: 0,
+                width:'100%'
             },
         });
         const marginComponents = {};
