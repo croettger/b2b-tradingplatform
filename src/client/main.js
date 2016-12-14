@@ -8,15 +8,16 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import Login from './components/login/Login';
 import BottomNavigationTest from './BottomNavigationTest';
 import Register from './components/registration/Register';
-import CreateProduct from './components/product/Produkt';
+import Profil from './container/Profil';
 const history = createHashHistory({ queryKey: false });
 
 injectTapEventPlugin();
 // TODO: Der Router muss natürlich auf die Startseite "Produkte" zeigen
 const router = <Router history={history}>
- <Redirect from='/' to='/login'/>
- <Route path='/login' component={Login}/>
+ <Redirect from='/' to='/profil'/>
+ <Router path='/login' component={Login}/>
  <Router path='/register' component={Register}/>
+ <Router path='/profil' component={Profil}/>
 </Router>;
 
 ReactDOM.render(<Navigation title="B2B-Trading Platform"/>, document.getElementById('header'));
