@@ -40,35 +40,53 @@ export default class BottomNavigationTest extends React.Component {
             backgroundColor:'#efefef', // grauer Hintergrund
         };
 
+        const Item = {
+            position: 'relative',
+            left: '7%', // grauer Hintergrund
+            //display: 'flex'
+        };
+
+
+
         return (
             <MuiThemeProvider>
                  <Paper zDepth={1}>
                     <BottomNavigation style={hintergrund} selectedIndex={this.state.selectedIndex}>
+                        <a href="#/createProduct" style={Item}>
                         <BottomNavigationItem
                             label="Profil"
                             icon={profil}
                             onTouchTap={() => this.select(0)}
                         />
-                        <BottomNavigationItem
-                            label="Meine Produkte"
-                            icon={products}
-                            onTouchTap={() => this.select(1)}
-                        />
+                        </a>
+                        <a href="#/createProduct" style={Item}>
+                                <BottomNavigationItem
+                                    label="Meine Produkte"
+                                    icon={products}
+                                    onTouchTap={() => this.select(1)}
+                                />
+                        </a>
+                        <a href="#/createProduct" style={Item}>
                         <BottomNavigationItem
                             label="Einstellungen"
                             icon={settings}
                             onTouchTap={() => this.select(2)}
                         />
+                        </a>
+                            <a href="#/createProduct" style={Item}>
                         <BottomNavigationItem
                             label="Kontakt"
                             icon={kontakt}
                             onTouchTap={() => this.select(3)}
                         />
+                            </a>
+                        <a href="#/createProduct" style={Item}>
                         <BottomNavigationItem
                             label="Hilfe"
                             icon={help}
                             onTouchTap={() => this.select(4)}
                         />
+                        </a>
                     </BottomNavigation>
                 </Paper>
             </MuiThemeProvider>
