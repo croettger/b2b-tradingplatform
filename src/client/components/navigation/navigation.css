@@ -1,0 +1,21 @@
+.navHeader {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.firstElement {
+    margin-left: 20px;
+}
+
+.lastElement {
+    margin-right: 20px;
+}
+
+.titleColor {
+    margin-left: 20px;
+    color: white;
+}
+

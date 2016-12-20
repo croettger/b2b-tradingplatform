@@ -3,8 +3,12 @@
  */
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
+import IconButton from 'material-ui/IconButton';
+import ShoppingCartIcon from 'material-ui/svg-icons/action/add-shopping-cart';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
+import ReactStars from 'react-stars'
+import NumericInput from 'react-numeric-input';
+import FontIcon from 'material-ui/FontIcon';
 
 
 export default class Produkt extends React.Component {
@@ -48,6 +52,14 @@ export default class Produkt extends React.Component {
             actualState = 'ANZEIGE';
         }
 
+
+        const componentCSS = {
+            border: '1px solid',
+            height: '200px',
+            width: '600px',
+            borderRadius: '10px'
+        };
+
         const bildCSS = {
             position: 'relative',
             float: 'left',
@@ -74,8 +86,6 @@ export default class Produkt extends React.Component {
             position: 'relative',
             float: 'left',
             display: 'block',
-            padding: '10px',
-            marginRight: '10px',
             marginLeft: '10px'
 
         };
@@ -102,14 +112,15 @@ export default class Produkt extends React.Component {
 
 
         const textCSS = {
-            position: 'relative',
+            position: 'absolute',
             float: 'left',
             display: 'block',
             padding: '10px',
             marginRight: '10px',
-            marginLeft: '10px',
-            left: '10px'
-
+            marginTop: '20px',
+            marginLeft: '70px',
+            left: '10px',
+            width: '300px'
         };
 
         const buttonsCSS = {
@@ -126,8 +137,6 @@ export default class Produkt extends React.Component {
             position: 'relative',
             float: 'left',
             display: 'block',
-            padding: '10px',
-            marginRight: '10px',
             marginLeft: '10px'
 
         };
@@ -137,7 +146,7 @@ export default class Produkt extends React.Component {
             einkaufen = (
                 <div style={einkaufenCSS}> {/* Div für Warenkorb. Soll Später ein Icon statt einem Button sein */}
                     <MuiThemeProvider>
-                        <RaisedButton label="In den Warenkorb" primary={true}/>
+                        <IconButton><ShoppingCartIcon/></IconButton>
                     </MuiThemeProvider>
                 </div>
             )
@@ -151,7 +160,9 @@ export default class Produkt extends React.Component {
         if('WARENKORB'.includes(actualState)) {
             warenkorb = (
                 <div style={warenkorbCSS}> {/* Div für Warenkorb. Soll Später ein Icon statt einem Button sein */}
-                    Menge
+                    <MuiThemeProvider>
+                        <NumericInput size={2}/>
+                    </MuiThemeProvider>
                 </div>
             )
         }else{
@@ -212,20 +223,32 @@ export default class Produkt extends React.Component {
             unveroeffentlicht = '';
         }
 
+        const iconStyles = {
+            marginRight: 24,
+        };
 
 
         /* Wenn Anzeige(ANZEIGE) (Standardaufbau) */
         anzeige = (
-            <div>
+            <div style={componentCSS}>
                 <div style={bildCSS}>Bild</div>
                 <div>
                     <div style = {ueberschriftCSS}>Überschrift</div>
-                    <div style = {bewertungCSS}>Bewertung</div>
-                    {warenkorb}
+                    <div style = {bewertungCSS}>
+                        <MuiThemeProvider>
+                            <ReactStars count={5} size={24} color2={'#ffd700'} />
+                        </MuiThemeProvider>
+                    </div>
                     <div style = {preisCSS}>Preis</div>
                 </div>
 
-                <div style={textCSS}>TEXT BESCHREIBUNG</div>
+                <div style={textCSS}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <br/>
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <br/>
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <br/>
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <br/>
+                </div>
+
+                {warenkorb}
 
                 {einkaufen}
 
