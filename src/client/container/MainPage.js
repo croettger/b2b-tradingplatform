@@ -1,8 +1,8 @@
 /**
  * Created by Christoph on 04.12.2016.
  */
-
-import Produkt from './components/product/Produkt';
+import React from 'react';
+import Produkt from './../components/product/Produkt';
 
 export default class MainPage extends React.Component {
 

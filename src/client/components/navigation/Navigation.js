@@ -12,6 +12,7 @@ import {Toolbar, ToolbarGroup, ToolbarTitle} from 'material-ui/Toolbar';
 import AutoCompleteTextField from '../../AutoCompleteTextField';
 import SearchIcon from 'material-ui/svg-icons/action/search';
 import Paper from 'material-ui/Paper';
+import {Link} from 'react-router';
 
 import styles from './navigation.css';
 
@@ -44,16 +45,16 @@ export default class Navigation extends React.Component {
                 <Paper zDepth={1}>
                     <Toolbar>
                         <ToolbarGroup firstChild={true}>
-                            <a href="#/register" style={textDeco}>
+                            <Link to="/" style={textDeco}>
                                 <ToolbarTitle className={styles.titleColor} text={this.props.title}/>
-                            </a>
+                            </Link>
                         </ToolbarGroup>
                         <ToolbarGroup>
                             <AutoCompleteTextField hintText="Produktsuche"/>
                             <SearchIcon />
                         </ToolbarGroup>
-                        <ToolbarGroup lastChild={true}>
-                            <IconButton><ShoppingCartIcon href="#/order"/></IconButton>
+                        <ToolbarGroup lastChild={true} className="lastChild">
+                           <Link to="/marketbasket"><ShoppingCartIcon/></Link>
                             <AccountIcon />
                             <p>BenutzerXY</p>
                             <IconMenu className={styles.lastElement}

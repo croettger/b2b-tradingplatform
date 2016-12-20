@@ -10,6 +10,8 @@ import Register from './components/registration/Register';
 import Profil from './components/profil/Profil';
 import CreateProduct from './components/product/CreateProduct';
 import PlaceAndOrder from './components/Orders/PlaceAnOrder';
+import Warenkorb from './container/Warenkorb';
+import MainPage from './container/MainPage';
 //Other
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
@@ -32,12 +34,13 @@ class App extends React.Component {
 ReactDOM.render((
     <Router history={hashHistory}>
         <Route path="/" component={App}>
-            <IndexRoute component={Login} />
+            <IndexRoute component={MainPage} />
             <Route path="/register" component={Register} />
             <Route path="/profil" component={Profil} />
             <Route path="/login" component={Login} />
             <Route path="/createproduct" component={CreateProduct}/>
             <Route path="/bestellungaufgeben" component={PlaceAndOrder}/>
+            <Route path="/marketbasket" component={Warenkorb} />
         </Route>
     </Router>
 ), document.getElementById('mountingPoint'));
