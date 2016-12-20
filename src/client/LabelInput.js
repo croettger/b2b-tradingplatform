@@ -32,9 +32,9 @@ export default class LabelInput extends React.Component {
         return <div>
             <label htmlFor="label" style={this.props.style}>{this.props.labelTitle}</label><br/>
             <MuiThemeProvider>
-                <TextField id="textfield"
+                <TextField
                            hintText={this.props.labelText}      // Hinweis in dem Textfield
-                           type={this.props.type}               // Typ des TextFields --> text/password
+                           type={this.props.type}               // Typ des TextFields --> firstSecondName/password
                            maxLength = {this.props.maxLength}   // Länge der Eingabe
                            fullWidth={this.props.fullWidth}     // Gesamtbreite für TextField
 
@@ -55,8 +55,10 @@ export default class LabelInput extends React.Component {
                            multiLine = {this.props.inputMultiLine}  // Mehrere Zeilen.
                            rows = {this.props.rows}
                            textareaStyle={{borderStyle: 'solid', borderWidth: '1px', display: 'inline-block'}} // Rahmen
-
-                           onChange={(e)=>this.charCountChange(e)}  // Verwaltung der Zeichenanzahl bei der Eingabe
+                           errorStyle={this.props.errorStyle}
+                           errorText={this.props.errorText}
+                           id = {this.props.id}
+                           onChange={this.props.onChange}  // Verwaltung der Zeichenanzahl bei der Eingabe
                 />
             </MuiThemeProvider>
         </div>;
