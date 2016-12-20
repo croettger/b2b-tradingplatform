@@ -4,9 +4,9 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Adress from './../components/person_data/Address';
+import Adress from '../person_data/Address';
 import RaisedButton from 'material-ui/RaisedButton';
-import LabelInput from './../LabelInput';
+import LabelInput from '../../LabelInput';
 import TextArea from 'material-ui/TextField';
 
 import {Card, CardMedia, CardTitle} from 'material-ui/Card';

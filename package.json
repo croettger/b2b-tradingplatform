@@ -26,26 +26,27 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.16.0",
+    "css-loader": "^0.26.1",
     "eslint": "^3.9.1",
     "eslint-loader": "^1.6.1",
     "eslint-plugin-react": "^6.7.0",
     "eventsource-polyfill": "^0.9.6",
     "hapi-webpack-plugin": "^1.3.0",
     "html-webpack-plugin": "^2.24.1",
+    "style-loader": "^0.13.1",
     "webpack": "^1.13.3",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-hot-middleware": "^2.13.2"
   },
   "dependencies": {
     "babel-polyfill": "^6.16.0",
-    "babel-register": "^6.18.0",
     "hapi": "^15.2.0",
-    "history": "^2.0.1",
+    "history": "^4.5.0",
     "inert": "^4.0.2",
     "material-ui": "^0.16.4",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
-    "react-router": "^2.1.0",
+    "react-router": "^3.0.0",
     "react-tap-event-plugin": "^2.0.1"
   }
 }
