@@ -9,6 +9,7 @@ import BottomNavigationTest from './components/bottom/BottomNavigation';
 import Register from './components/registration/Register';
 import Profil from './components/profil/Profil';
 import CreateProduct from './components/product/CreateProduct';
+import PlaceAndOrder from './components/Orders/PlaceAnOrder';
 //Other
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
@@ -36,6 +37,7 @@ ReactDOM.render((
             <Route path="/profil" component={Profil} />
             <Route path="/login" component={Login} />
             <Route path="/createproduct" component={CreateProduct}/>
+            <Route path="/bestellungaufgeben" component={PlaceAndOrder}/>
         </Route>
     </Router>
 ), document.getElementById('mountingPoint'));

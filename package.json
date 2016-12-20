@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.16.0",
+    "file-loader": "^0.9.0",
     "hapi": "^15.2.0",
     "history": "^4.5.0",
     "inert": "^4.0.2",

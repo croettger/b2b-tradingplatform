@@ -36,41 +36,41 @@ export default class BottomNavigationTest extends React.Component {
             <MuiThemeProvider>
                  <Paper zDepth={1} className={styles.paper}>
                     <BottomNavigation id="bottomnav" className={styles.bottomnav} selectedIndex={this.state.selectedIndex}>
-                        <Link to="/login"className={styles.item}>
+                        <Link to="/profil" className={styles.item}>
                         <BottomNavigationItem
                             label="Profil"
                             icon={profil}
                             onTouchTap={() => this.select(0)}
                         />
                         </Link>
-                        <a href="#/createProduct"className={styles.item}>
+                        <a href="#/createProduct" className={styles.item}>
                                 <BottomNavigationItem
                                     label="Meine Produkte"
                                     icon={products}
                                     onTouchTap={() => this.select(1)}
                                 />
                         </a>
-                        <a href="#/createProduct"className={styles.item}>
+                        <Link to="/bestellungaufgeben" className={styles.item}>
                         <BottomNavigationItem
                             label="Einstellungen"
                             icon={settings}
                             onTouchTap={() => this.select(2)}
                         />
-                        </a>
-                            <a href="#/createProduct"className={styles.item}>
+                        </Link>
+                            <Link to="/createProduct" className={styles.item}>
                         <BottomNavigationItem
                             label="Kontakt"
                             icon={kontakt}
                             onTouchTap={() => this.select(3)}
                         />
-                            </a>
-                        <a href="#/createProduct"className={styles.item}>
+                            </Link>
+                        <Link to="#/createProduct" className={styles.item}>
                         <BottomNavigationItem
                             label="Hilfe"
                             icon={help}
                             onTouchTap={() => this.select(4)}
                         />
-                        </a>
+                        </Link>
                     </BottomNavigation>
                 </Paper>
             </MuiThemeProvider>
