@@ -6,8 +6,6 @@ import React from 'react';
 import Produkt from '../components/product/Produkt';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
-import React from 'react';
-import Produkt from './../components/product/Produkt';
 
 
 export default class MainPage extends React.Component {
