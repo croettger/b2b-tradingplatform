@@ -31,9 +31,6 @@ export default class PlaceAnOrder extends React.Component {
 
             checkbox: false
         }
-
-        this.handleChange = this.handleChange.bind(this);
-        this.hideInOrOut = this.hideInOrOut.bind(this);
     }
 
     //Speichert die Eingaben aus den Textfeldern in die Zustandsvariablen
@@ -48,8 +45,8 @@ export default class PlaceAnOrder extends React.Component {
             this.setState({city: event.target.value});
         else if (event.target.id == 'Lieferadresse5')
             this.setState({plz: event.target.value});
-        else if (event.target.id == 'Lieferadresse6')
-            this.setState({country: event.target.value});
+        else if (event.target.id == 'Lieferadresse6'){
+            this.setState({country: event.target.value});}
         else if (event.target.id == 'Rechnungsadresse1')
             this.setState({firstSecondNameR: event.target.value});
         else if (event.target.id == 'Rechnungsadresse2')
@@ -73,15 +70,6 @@ export default class PlaceAnOrder extends React.Component {
             this.setState({checkbox: true})
     }
 
-
-    //
-    boxOnCheck(event) {
-        if(event.target.checked==true)
-        {
-
-        }
-    }
-
     render() {
         // Styling für die Buttons
         const style = {
@@ -94,10 +82,10 @@ export default class PlaceAnOrder extends React.Component {
 
         // Styling für den Paper
         const paperStyle = {
-            width: '50%',
+            width: '200%',
             position: 'relative',
             left: '50%',
-            marginLeft: '-25%',
+            marginLeft: '-100%',
             display: 'inline-block',
             borderRadius: '10px', // abgerundete Ecken
             backgroundColor: '#efefef', // grauer Hintergrund
@@ -112,16 +100,21 @@ export default class PlaceAnOrder extends React.Component {
         if(!isChecked)
             address = <Address labelTitle={'Vor- und Nachname'} text={'Rechnungsadresse'} name='Rechnungsadresse'></Address>
         else
-            address = <p>Folgende Rechnungsadresse wird berücksichtigt:<br/>
-                {this.state.firstSecondName}<br/>
-                {this.state.street} {this.state.nr}<br/>
-                {this.state.city} {this.state.plz}<br/>
-                {this.state.country}</p>
-
+            if(this.state.firstSecondName!=''&&this.state.street!=''&&this.state.nr!=''&&this.state.city!=''&&this.state.plz!=''&&this.state.country!='')
+            {
+                address = <p style={{borderRadius: '10px', border: '1px solid'}}>&emsp;Folgende Rechnungsadresse wird berücksichtigt:<br/>
+                        &emsp;{this.state.firstSecondName}<br/>
+                        &emsp;{this.state.street} {this.state.nr}<br/>
+                        &emsp;{this.state.city} {this.state.plz}<br/>
+                        &emsp;{this.state.country}</p>
+            }
+            else {
+                address=<p>Füllen Sie bitte alle Felder aus</p>
+            }
 
         return  <div>
             <MuiThemeProvider>
-                <Paper id="paper" zDepth={5} style={paperStyle}>
+                <Paper id="paper" zDepth={5} style={paperStyle} onChange={(e)=>this.handleChange(e)}>
                     <h2>Bestellung aufgeben</h2><br/>
                     <Address labelTitle={'Vor- und Nachname'} text={'Lieferadresse'} name='Lieferadresse'></Address><br/>
                     <Checkbox label="Als Rechnungsadresse übernehmen" style={checkboxstyle} onCheck={(e)=>this.hideInOrOut(e)} /><br/><br/>
