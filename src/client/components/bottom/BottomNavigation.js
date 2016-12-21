@@ -43,13 +43,13 @@ export default class BottomNavigationTest extends React.Component {
                             onTouchTap={() => this.select(0)}
                         />
                         </Link>
-                        <a href="#/createProduct" className={styles.item}>
+                        <Link to="/myproducts" className={styles.item}>
                                 <BottomNavigationItem
                                     label="Meine Produkte"
                                     icon={products}
                                     onTouchTap={() => this.select(1)}
                                 />
-                        </a>
+                        </Link>
                         <Link to="/bestellungaufgeben" className={styles.item}>
                         <BottomNavigationItem
                             label="Einstellungen"
@@ -57,14 +57,14 @@ export default class BottomNavigationTest extends React.Component {
                             onTouchTap={() => this.select(2)}
                         />
                         </Link>
-                            <Link to="/createProduct" className={styles.item}>
+                            <Link to="/contact" className={styles.item}>
                         <BottomNavigationItem
                             label="Kontakt"
                             icon={kontakt}
                             onTouchTap={() => this.select(3)}
                         />
                             </Link>
-                        <Link to="#/createProduct" className={styles.item}>
+                        <Link to="/createproduct" className={styles.item}>
                         <BottomNavigationItem
                             label="Hilfe"
                             icon={help}
