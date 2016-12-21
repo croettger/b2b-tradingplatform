@@ -9,6 +9,10 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import ReactStars from 'react-stars'
 import NumericInput from 'react-numeric-input';
 import FontIcon from 'material-ui/FontIcon';
+import ProductPictures from './ProductPictures';
+import LabelInput from '../../LabelInput';
+import Paper from 'material-ui/Paper';
+import {Link} from 'react-router';
 
 
 export default class Produkt extends React.Component {
@@ -25,79 +29,45 @@ export default class Produkt extends React.Component {
              * WARENKORB. Einkaufswagen : Wenn der Artikel in den Einkaufswagen hinzugefügt wurde. Keine Buttons vorhanden. Dafür Menge einstellbar + Preis sichtbar. Der Preis = Artikelpreis*Menge
              * Standardmäßig. Anzeige : Wenn der Artikel angezeigt wird. Wie Einkaufswagen mit dem Unterschied, dass ein Button vorhanden ist, um in den Warenkorb zu legen.
              * */
-            status: 'ANZEIGE'
+            status: this.props.status
 
         };
     }
 
 
-
-
     render() {
+
         let anzeige;
         let einkaufen;
         let warenkorb;
         let gekauft;
-        let veroeffentlicht;
-        let unveroeffentlicht;
+        let veröffentlicht;
+        let unveröffentlicht;
 
-
-
-        let actualState;
-        actualState = this.props.status;
-
-        if(actualState.length > 0){
-            actualState = actualState.substr(0, 5);
-        }else{
-            actualState = 'ANZEIGE';
-        }
-
+        // Styling für den Paper
+        const paperStyle = {
+            borderRadius: '15px', // abgerundete Ecken
+            padding: '10px',  // Innenabstand
+        };
 
         const componentCSS = {
-            border: '1px solid',
-            height: '200px',
-            width: '600px',
-            borderRadius: '10px'
+            border:'1px solid',
+            padding: '10',
         };
-
-        const bildCSS = {
-            position: 'relative',
-            float: 'left',
-            color: 'blue',
-            display: 'block',
-            padding: '10px',
-            marginRight: '10px',
-            marginLeft: '10px'
-
-        };
-
 
         const ueberschriftCSS = {
             position: 'relative',
-            float: 'left',
-            display: 'block',
-            padding: '10px',
-            marginRight: '10px',
-            marginLeft: '10px'
+            margin: '10px'
         };
-
 
         const bewertungCSS = {
             position: 'relative',
-            float: 'left',
-            display: 'block',
-            marginLeft: '10px'
-
+            margin: '10px'
         };
 
         const preisCSS = {
             position: 'relative',
-            float: 'left',
-            display: 'block',
             padding: '10px',
-            marginRight: '10px',
-            marginLeft: '10px'
-
         };
 
         const warenkorbCSS = {
@@ -110,27 +80,10 @@ export default class Produkt extends React.Component {
 
         };
 
-
-        const textCSS = {
-            position: 'absolute',
-            float: 'left',
-            display: 'block',
-            padding: '10px',
-            marginRight: '10px',
-            marginTop: '20px',
-            marginLeft: '70px',
-            left: '10px',
-            width: '300px'
-        };
-
         const buttonsCSS = {
             position: 'relative',
-            float: 'left',
-            display: 'block',
-            padding: '10px',
-            marginRight: '10px',
-            marginLeft: '10px'
-
+            width: '200px',
+            margin: '10px'
         };
 
         const einkaufenCSS = {
@@ -141,131 +94,95 @@ export default class Produkt extends React.Component {
 
         };
 
-        /* Wenn Einkaufen(EINKAUFEN) (Ergänzt Anzeige um Einkaufsbutton) */
-        if('EINKAUFEN'.includes(actualState)) {
-            einkaufen = (
-                <div style={einkaufenCSS}> {/* Div für Warenkorb. Soll Später ein Icon statt einem Button sein */}
-                    <MuiThemeProvider>
-                        <IconButton><ShoppingCartIcon/></IconButton>
-                    </MuiThemeProvider>
-                </div>
-            )
-        }else{
-            einkaufen = '';
-        }
-
-
-        /* Wenn Warenkorb(WARENKORB) (Ergänzt Anzeige um Menge) */
-
-        if('WARENKORB'.includes(actualState)) {
-            warenkorb = (
-                <div style={warenkorbCSS}> {/* Div für Warenkorb. Soll Später ein Icon statt einem Button sein */}
-                    <MuiThemeProvider>
-                        <NumericInput size={2}/>
-                    </MuiThemeProvider>
-                </div>
-            )
-        }else{
-            warenkorb = '';
-        }
-
-
-        /* Wenn Gekauft(GEKAUFT) (Ergänzt Anzeige um Bewertungsmöglichkeit) */
-        if('GEKAUFT'.includes(actualState)) {
-            gekauft = (
-                <div> {/* Div für Warenkorb. Soll Später ein Icon statt einem Button sein */}
-                    <MuiThemeProvider>
-                        <RaisedButton label="Bewerten"  primary={true}/>
-                    </MuiThemeProvider>
-                </div>
-            )
-        }else{
-            gekauft = '';
-        }
-
-
-        /* Wenn Veröffentlicht(VEROEFFENTLICHT) (Ergänzt Anzeige um Bearbeit- und Löschmöglichkeit) */
-        if('ONLINE'.includes(actualState)) {
-            veroeffentlicht = (
-                <div> {/* Div für Warenkorb. Soll Später ein Icon statt einem Button sein */}
-                    <MuiThemeProvider>
-                        <RaisedButton label="Bearbeiten"  primary={true}/>
-                    </MuiThemeProvider><br/>
-
-                    <MuiThemeProvider>
-                        <RaisedButton label="Löschen"  primary={true}/>
-                    </MuiThemeProvider><br/>
-                </div>
-            )
-        }else{
-            veroeffentlicht = '';
-        }
-
-
-        /* Wenn Unveröffentlicht(UNVEROEFFENTLICHT) (Ergänzt Anzeige um Veröffentlich-, Bearbeit-, und Löschmöglichkeit */
-        if('OFFLINE'.includes(actualState)) {
-            unveroeffentlicht = (
-                <div> {/* Div für Warenkorb. Soll Später ein Icon statt einem Button sein */}
-                    <MuiThemeProvider>
-                        <RaisedButton label="Veröffentlichen"  primary={true}/>
-                    </MuiThemeProvider><br/>
-
-                    <MuiThemeProvider>
-                        <RaisedButton label="Bearbeiten"  primary={true}/>
-                    </MuiThemeProvider><br/>
-
-                    <MuiThemeProvider>
-                        <RaisedButton label="Löschen"  primary={true}/>
-                    </MuiThemeProvider><br/>
-                </div>
-            )
-        }else{
-            unveroeffentlicht = '';
-        }
-
         const iconStyles = {
             marginRight: 24,
         };
 
+        /* Wenn Einkaufen(EINKAUFEN) (Ergänzt Anzeige um Einkaufsbutton) */
+        if(this.state.status == 'EINKAUFEN') {
+            einkaufen = <div> {/* Div für Warenkorb. Soll Später ein Icon statt einem Button sein */}
+                <IconButton><ShoppingCartIcon/></IconButton>
+                <RaisedButton label="Bestellen"  primary={true} style={buttonsCSS}/>
+            </div>
+        }
+
+        /* Wenn Warenkorb(WARENKORB) (Ergänzt Anzeige um Menge) */
+
+        if(this.state.status == 'WARENKORB') {
+            warenkorb =
+                <div style={warenkorbCSS}> {/* Div für Warenkorb. Soll Später ein Icon statt einem Button sein */}
+                    <NumericInput size={2} />
+                </div>
+        }
+
+        /* Wenn Gekauft(GEKAUFT) (Ergänzt Anzeige um Bewertungsmöglichkeit) */
+        if(this.state.status == 'GEKAUFT') {
+            gekauft = <RaisedButton label="Bewerten"  primary={true} style={buttonsCSS}/>
+        }
+
+        /* Wenn Veröffentlicht(VEROEFFENTLICHT) (Ergänzt Anzeige um Bearbeit- und Löschmöglichkeit) */
+        if(this.state.status == 'ONLINE') {
+            veröffentlicht = (
+                <div > {/* Div für Warenkorb. Soll Später ein Icon statt einem Button sein */}
+                    <RaisedButton label="Bearbeiten"  primary={true} style={buttonsCSS}/>
+                    <RaisedButton label="Löschen"  primary={true} style={buttonsCSS}/>
+                </div>
+            )
+        }
+
+        /* Wenn Unveröffentlicht(UNVEROEFFENTLICHT) (Ergänzt Anzeige um Veröffentlich-, Bearbeit-, und Löschmöglichkeit */
+        if(this.state.status == 'OFFLINE') {
+            unveröffentlicht = (
+                <div > {/* Div für Warenkorb. Soll Später ein Icon statt einem Button sein */}
+                    <RaisedButton label="Veröffentlichen"  primary={true} style={buttonsCSS}/>
+                    <Link to="/createproduct">
+                        <RaisedButton label="Bearbeiten"  primary={true} style={buttonsCSS}/>
+                    </Link>
+                    <RaisedButton label="Löschen"  primary={true} style={buttonsCSS}/>
+                </div>
+            )
+        }
 
         /* Wenn Anzeige(ANZEIGE) (Standardaufbau) */
-        anzeige = (
+         anzeige = (
             <div style={componentCSS}>
-                <div style={bildCSS}>Bild</div>
-                <div>
-                    <div style = {ueberschriftCSS}>Überschrift</div>
-                    <div style = {bewertungCSS}>
-                        <MuiThemeProvider>
-                            <ReactStars count={5} size={24} color2={'#ffd700'} />
-                        </MuiThemeProvider>
+                <MuiThemeProvider>
+                    <div style={{display: 'flex'}}>
+                        <ProductPictures anzBilder="1"/>
+                        <div style={{display: 'inline-block',width: '300px'}}>
+                            <div style={{display: 'flex'}}>
+                                <div style={ueberschriftCSS}>Überschrift</div>
+                                <ReactStars count={5} size={24} color2={'#ffd700'} />
+                                <div style={ueberschriftCSS}>Preis</div>
+                            </div>
+                            <div>
+                                 <LabelInput labelTitle = {'Beschreibung:'}
+                                             inputMultiLine={true}
+                                             rows = {6}
+                                             fullWidth = {true}
+                                             style={{marginLeft: '10px'}}
+                                 />
+                            </div>
+
+                        </div>
+                        <div style={buttonsCSS}>
+                            {warenkorb}
+                            {einkaufen}
+                            {gekauft}
+                            {veröffentlicht}
+                            {unveröffentlicht}
+                        </div>
                     </div>
-                    <div style = {preisCSS}>Preis</div>
-                </div>
-
-                <div style={textCSS}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <br/>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <br/>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <br/>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <br/>
-                </div>
-
-                {warenkorb}
-
-                {einkaufen}
-
-                <div style={buttonsCSS}>
-                    {gekauft}
-                    {veroeffentlicht}
-                    {unveroeffentlicht}
-                </div>
+                </MuiThemeProvider>
             </div>
         )
-
 
         return (
             <div>
+                <Paper id="paper" zDepth={1} style={paperStyle}>
                 {anzeige}
+                </Paper>
             </div>
         )
     }
-
 }
