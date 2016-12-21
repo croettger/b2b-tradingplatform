@@ -3,7 +3,7 @@
  * Diese JavaScript-Datei kümmert sich um die Footer-Navigation. Die Icons wurden von Materials UI übernommen.
  */
 
-import React, {Component} from 'react';
+import React from 'react';
 import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
 import Paper from 'material-ui/Paper';
 import Profile from 'material-ui/svg-icons/Action/account-box';
@@ -12,6 +12,9 @@ import MyProducts from 'material-ui/svg-icons/Action/home';
 import Help from 'material-ui/svg-icons/Communication/live-help';
 import Kontakt from 'material-ui/svg-icons/Communication/contact-mail';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {Link} from 'react-router';
+
+import styles from './bottomnavigation.css';
 
 const profil = <Profile/>;
 const products = <MyProducts/>;
@@ -29,64 +32,45 @@ export default class BottomNavigationTest extends React.Component {
     select = (index) => this.setState({selectedIndex: index});
 
     render() {
-        // Styling für den Paper
-        const paperStyle = {
-            position: 'relative',
-            marginTop: '10px', /* Damit die Navigation ein Bischen Abstand vom Body hat.*/
-            display: 'block'
-        };
-        // Styling für Navigation
-        const hintergrund = {
-            backgroundColor:'#efefef', // grauer Hintergrund
-        };
-
-        const Item = {
-            position: 'relative',
-            left: '7%', // grauer Hintergrund
-            //display: 'flex'
-        };
-
-
-
         return (
             <MuiThemeProvider>
-                 <Paper zDepth={1}>
-                    <BottomNavigation style={hintergrund} selectedIndex={this.state.selectedIndex}>
-                        <a href="#/createProduct" style={Item}>
+                 <Paper zDepth={1} className={styles.paper}>
+                    <BottomNavigation id="bottomnav" className={styles.bottomnav} selectedIndex={this.state.selectedIndex}>
+                        <Link to="/profil" className={styles.item}>
                         <BottomNavigationItem
                             label="Profil"
                             icon={profil}
                             onTouchTap={() => this.select(0)}
                         />
-                        </a>
-                        <a href="#/createProduct" style={Item}>
+                        </Link>
+                        <a href="#/createProduct" className={styles.item}>
                                 <BottomNavigationItem
                                     label="Meine Produkte"
                                     icon={products}
                                     onTouchTap={() => this.select(1)}
                                 />
                         </a>
-                        <a href="#/createProduct" style={Item}>
+                        <Link to="/bestellungaufgeben" className={styles.item}>
                         <BottomNavigationItem
                             label="Einstellungen"
                             icon={settings}
                             onTouchTap={() => this.select(2)}
                         />
-                        </a>
-                            <a href="#/createProduct" style={Item}>
+                        </Link>
+                            <Link to="/createProduct" className={styles.item}>
                         <BottomNavigationItem
                             label="Kontakt"
                             icon={kontakt}
                             onTouchTap={() => this.select(3)}
                         />
-                            </a>
-                        <a href="#/createProduct" style={Item}>
+                            </Link>
+                        <Link to="#/createProduct" className={styles.item}>
                         <BottomNavigationItem
                             label="Hilfe"
                             icon={help}
                             onTouchTap={() => this.select(4)}
                         />
-                        </a>
+                        </Link>
                     </BottomNavigation>
                 </Paper>
             </MuiThemeProvider>

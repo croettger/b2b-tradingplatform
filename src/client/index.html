@@ -5,11 +5,14 @@
     <title>b2b-TradingPlatform</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
-<!-- TODO: Die Styles auslagern! - Die index.html sollte sauber sein -->
-<body style="background-color: #efefef">
-<header id="header" style="position: fixed; top: 0; right:0; left:0; z-index: 1"></header>
-<main id="mountingPoint" style="margin-top: 80px"></main>
-<!--<div style="background-Color:darkred; height:1000px;"></div>-->
-<footer id="footer" style="position: fixed; bottom: 0; right:0; left:0; z-index: 1"></footer>
+<body>
+<style>
+    body {margin: 0; padding: 0;}
+    #wrapper_1 { clear: left; float: left; position: relative; left: 50%; }
+    #mountingPoint {width: 100%; margin-top: 80px; margin-bottom: 80px;display: block; float: left; position: relative; right: 50%; }
+</style>
+<div id="wrapper_1">
+<main id="mountingPoint" ></main>
+</div>
 </body>
 </html>

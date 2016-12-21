@@ -29,8 +29,8 @@ export default class Login extends React.Component {
             <MuiThemeProvider>
                 <Paper id="paper" zDepth={2} style={paperStyle}>
                     <h2>Anmelden</h2>
-                    <LabelInput labelTitle="Login" labelText="Bitte Email-Adresse eingeben"></LabelInput>
-                    <LabelInput labelTitle="Passwort" labelText="Bitte ein Passwort eingeben" type="password"></LabelInput>
+                    <LabelInput labelTitle="Login" labelText="Bitte Email-Adresse eingeben"/>
+                    <LabelInput labelTitle="Passwort" labelText="Bitte ein Passwort eingeben" type="password"/>
                     <RaisedButton label="Anmelden" primary={true} style={style}/>
                     <p style={style}>----- Neu bei b2b? -----</p>
                     <RaisedButton label="Registrieren" primary={true} href="#/register" style={style}/>
