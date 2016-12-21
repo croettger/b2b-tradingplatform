@@ -50,7 +50,8 @@ export default class LabelInput extends React.Component {
 
     // Methode verwaltet den Zustand --> Anzahl der Zeichen.
     charCountChange(event) {
-        {(this.state.num)? this.allowOnlyNumbers(event) : this.allowOnlyLetters(event) }
+        if((this.state.num!=null))
+            {(this.state.num)? this.allowOnlyNumbers(event) : this.allowOnlyLetters(event) }
         this.setState({zeichen: event.target.value});
     }
     //Prüft ob onChange gesetzt ist. Wenn nicht dann wird methode charCountChange zurückgeliefert
