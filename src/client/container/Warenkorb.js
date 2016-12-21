@@ -1,8 +1,8 @@
 /**
  * Created by Igci on 18.12.2016.
  */
-
-import Produkt from './components/product/Produkt';
+import React from 'react';
+import Produkt from './../components/product/Produkt';
 
 export default class Warenkorb extends React.Component {
 

@@ -12,6 +12,7 @@ import CreateProduct from './components/product/CreateProduct';
 import Contact from './components/person_data/Contact';
 import PlaceAndOrder from './components/Orders/PlaceAnOrder';
 import MeineProdukte from './container/MeineProdukte';
+import Warenkorb from './container/Warenkorb';
 import MainPage from './container/MainPage';
 //Other
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -52,6 +53,8 @@ ReactDOM.render((
             <Route path="/bestellungaufgeben" component={PlaceAndOrder}/>
             <Route path="/myproducts" component={MeineProdukte}/>
             <Route path="/mainpage" component={MainPage}/>
+            <Route path="/marketbasket" component={Warenkorb} />
+
         </Route>
     </Router>
 ), document.getElementById('mountingPoint'));

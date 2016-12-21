@@ -30,8 +30,8 @@ export default class Profil extends React.Component {
         const sidebar = {float: 'left', width: '270px'};
         const main = { display: 'inline-block', width: '700px', height: '100%'};
         const bottom = {clear: 'both', textAlign: 'center', paddingBottom:'15px'};
-        const nature = require('file-loader!./../../images/nature.jpg');
-        const titanic = require('file-loader!./../../images/titanic.jpg');
+        // const nature = require('file-loader!./../../images/nature.jpg');
+        // const titanic = require('file-loader!./../../images/titanic.jpg');
         const borderStyle = {border:'1px solid',height: '25px',marginTop: '15px'};
         const cardStyle = {width:'100%', height: '250px'};
         const CardExample = () => (

@@ -3,7 +3,7 @@
  * Diese JavaScript-Datei kümmert sich um die Footer-Navigation. Die Icons wurden von Materials UI übernommen.
  */
 
-import React, {Component} from 'react';
+import React from 'react';
 import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
 import Paper from 'material-ui/Paper';
 import Profile from 'material-ui/svg-icons/Action/account-box';
