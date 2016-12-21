@@ -102,7 +102,9 @@ export default class Produkt extends React.Component {
         if(this.state.status == 'EINKAUFEN') {
             einkaufen = <div> {/* Div für Warenkorb. Soll Später ein Icon statt einem Button sein */}
                 <IconButton><ShoppingCartIcon/></IconButton>
-                <RaisedButton label="Bestellen"  primary={true} style={buttonsCSS}/>
+                <Link to="/bestellungaufgeben">
+                    <RaisedButton label="Bestellen"  primary={true} style={buttonsCSS}/>
+                </Link>
             </div>
         }
 
