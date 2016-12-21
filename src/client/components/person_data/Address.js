@@ -10,10 +10,8 @@ export default class Address extends React.Component {
 
     constructor(props){
         super(props);
-        this.state={errorName: '',errorStrasse: '',errorStadt: '', errorNr: '', errorPlz: '', title: props.labelTitle,head: props.text, value: 1}
+        this.state={errorName: '',errorStrasse: '',errorStadt: '', errorNr: '', errorPlz: '', errorLand: '', title: props.labelTitle,head: props.text}
     }
-
-    handleChange = (event, index, value) => this.setState({value});
 
     //Erlaubt nur Buchstaben und Leerzeichen, wird eine Zahl eingegeben, kommt eine Meldung und die Eingabe wird zurückgesetzt
     allowOnlyLetters(event) {
@@ -26,28 +24,45 @@ export default class Address extends React.Component {
 
             event.target.focus();
             this.setState(id.endsWith(1)?{errorName: errorText}:
-                     id.endsWith(2)?{errorStrasse: errorText}:{errorStadt: errorText})
+                     id.endsWith(2)?{errorStrasse: errorText}:id.endsWith(4)?{errorStadt: errorText}:{errorLand: errorText});
         }
         else {
             this.setState(id.endsWith(1)?{errorName: ''}:
-                id.endsWith(2)?{errorStrasse: ''}:{errorStadt: ''})
+                id.endsWith(2)?{errorStrasse: ''}:id.endsWith(4)?{errorStadt: ''}:{errorLand: ''});
         }
     }
 
     //Erlaubt nur Zahle und Leerzeichen, wird ein Buchstabe eingegeben, kommt eine Meldung und die Eingabe wird zurückgesetzt
     allowOnlyNumbers(event) {
         let id=event.target.id;
-        let errorText='Nur Zahlen eingeben!'
-        if (!event.target.value.match(/^[0-9]+$/) && event.target.value !='')
+        let errorText1='Nur Zahlen eingeben!'
+        let errorText2='Keine Sonderzeichen eingeben!'
+        if(id.endsWith(3))
         {
-            //Buchstabe wird am Ende der Zeichenkette gelöscht
-            event.target.value=event.target.value.substring(0,event.target.value.length-1);
+            if (!event.target.value.match(/^[0-9a-zA-Z]+$/) && event.target.value !='')
+            {
+                //Buchstabe wird am Ende der Zeichenkette gelöscht
+                event.target.value=event.target.value.substring(0,event.target.value.length-1);
 
-            event.target.focus();
-            this.setState(id.endsWith(3)?{errorNr: errorText}:{errorPlz: errorText})
+                event.target.focus();
+                this.setState({errorNr: errorText2});
+            }
+            else {
+                this.setState({errorNr: ''});
+            }
         }
         else {
-            this.setState(id.endsWith(3)?{errorNr: ''}:{errorPlz: ''})
+            if (!event.target.value.match(/^[0-9]+$/) && event.target.value !='')
+            {
+                //Buchstabe wird am Ende der Zeichenkette gelöscht
+                event.target.value=event.target.value.substring(0,event.target.value.length-1);
+
+                event.target.focus();
+                this.setState({errorPlz: errorText1});
+            }
+            else {
+                this.setState({errorPlz: ''});
+            }
         }
     }
 
@@ -57,7 +72,6 @@ export default class Address extends React.Component {
 
         // Styling für den Border
         const borderStyle = {border:'1px solid',height: '25px',marginTop: '10px'};
-        const dropBorderStyle = {border:'1px solid',height:'25px', width:'253', marginTop: '10px'};
 
         return  <div>
             <font size="4">
@@ -75,12 +89,7 @@ export default class Address extends React.Component {
                 <LabelInput id ={this.props.name +'4'} style={{width: '190px'}} labelTitle="Stadt" labelText="Stadt" underlineShow={false} errorText={this.state.errorStadt} errorStyle={{top: '3px'}} inputStyle={borderStyle} onChange={(e)=>this.allowOnlyLetters(e)}></LabelInput>
                 <LabelInput id ={this.props.name +'5'} style={{width: '60px', marginLeft: '5px'}} labelTitle="PLZ" labelText="PLZ" underlineShow={false} errorText={this.state.errorPlz} errorStyle={{top: '3px'}} inputStyle={borderStyle} maxLength={5} onChange={(e)=>this.allowOnlyNumbers(e)}></LabelInput>
             </div>
-            <label>Land</label><br/>
-            <DropDownMenu id ={this.props.name +'6'} style={dropBorderStyle} value={this.state.value} labelStyle={{height:'0px', marginTop: '-15px'}} listStyle={{width:'233'}} onChange={this.handleChange}>
-                <MenuItem value={1} primaryText="Deutschland" />
-                <MenuItem value={2} primaryText="England" />
-                <MenuItem value={3} primaryText="Frankreich" />
-            </DropDownMenu>
+            <LabelInput id ={this.props.name +'6'} labelTitle="Land" labelText="Land" underlineShow={false} errorText={this.state.errorLand} errorStyle={{top: '3px'}} inputStyle={borderStyle} onChange={(e)=>this.allowOnlyLetters(e)}></LabelInput>
         </div>
     }
 }
