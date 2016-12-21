@@ -10,17 +10,62 @@ import AddFoto from 'material-ui/svg-icons/Image/add-a-photo';
 
 //Komponente für Produktbilder
 export default class ProductPictures extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {anzBilder: props.anzBilder, add: props.add} // Zustand --> Anzahl eingegebener Zeichen
+    }
+
+    createTilesData() {
+        var temp = null;
+        if(this.props.anzBilder==1) {
+            temp = [
+                {
+                    img: 'http://www.caravanparkproducts.co.uk/advtiserlogos/no-image.jpg',
+                    title: 'Produktfoto 1',
+                }]
+        }
+        else if (this.props.anzBilder==2)
+        {
+            temp = [
+                {
+                    img: 'http://www.caravanparkproducts.co.uk/advtiserlogos/no-image.jpg',
+                    title: 'Produktfoto 1',
+                },
+                {
+                    img: 'http://www.caravanparkproducts.co.uk/advtiserlogos/no-image.jpg',
+                    title: 'Produktfoto 1',
+                }]
+        }
+        else
+            temp = [
+                {
+                    img: 'http://www.caravanparkproducts.co.uk/advtiserlogos/no-image.jpg',
+                    title: 'Produktfoto 1',
+                },
+                {
+                    img: 'http://www.caravanparkproducts.co.uk/advtiserlogos/no-image.jpg',
+                    title: 'Produktfoto 1',
+                },
+                {
+                    img: 'http://www.caravanparkproducts.co.uk/advtiserlogos/no-image.jpg',
+                    title: 'Produktfoto 1',
+                }
+            ]
+        return temp;
+    }
+
+    getAddButton()
+    {
+        if(this.state.add)
+           return <AddFoto hoverColor={'red'}/>
+    }
 
     render() {
         // Styling für GridList
         const styles = {
-            root: {
-                display: 'flex',
-                flexWrap: 'wrap',
-                justifyContent: 'space-around',
-            },
             gridList: {
                 display: 'flex',
+                border:'1px solid',
                 flexWrap: 'nowrap',
                 overflowX: 'auto',
             },
@@ -30,23 +75,10 @@ export default class ProductPictures extends React.Component {
         };
 
         // Test Bilder
-        const tilesData = [
-            {
-                img: 'http://www.caravanparkproducts.co.uk/advtiserlogos/no-image.jpg',
-                title: 'Produktfoto 1',
-            },
-            {
-                img: 'http://www.caravanparkproducts.co.uk/advtiserlogos/no-image.jpg',
-                title: 'Produktfoto 2',
-            },
-            {
-                img: 'http://www.caravanparkproducts.co.uk/advtiserlogos/no-image.jpg',
-                title: 'Produktfoto 3',
-            }
-        ];
+        var tilesData = this.createTilesData()
 
         return <div>
-        <GridList style={styles.gridList} cols={2.2}>
+        <GridList style={styles.gridList} cols={this.state.anzBilder}>
                         {tilesData.map((tile) => (
                             <GridTile
                                 title={tile.title}
@@ -57,7 +89,7 @@ export default class ProductPictures extends React.Component {
                             </GridTile>
                         ))}
             </GridList>
-            <AddFoto hoverColor={'red'}/>
+            {this.getAddButton()}
         </div>
     }
 }
