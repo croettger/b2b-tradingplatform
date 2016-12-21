@@ -54,7 +54,6 @@ ReactDOM.render((
             <Route path="/myproducts" component={MeineProdukte}/>
             <Route path="/mainpage" component={MainPage}/>
             <Route path="/marketbasket" component={Warenkorb} />
-
         </Route>
     </Router>
 ), document.getElementById('mountingPoint'));
