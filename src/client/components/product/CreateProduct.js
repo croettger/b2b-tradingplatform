@@ -16,21 +16,6 @@ export default class CreateProduct extends React.Component {
         this.state = {zeichen: ''} // Zustand --> Anzahl eingegebener Zeichen
     }
 
-    // Methode liefert die Anzahl der noch verbleibenden Zeichen.
-    getCharsRemaining() {
-        return this.props.maxLength-this.state.zeichen.length;
-    }
-
-    // Methode liefert true wenn die Zeichen noch eingegeben werden können.
-    hasRemainingChars() {
-        return this.getCharsRemaining() >= 0;
-    }
-
-    // Methode verwaltet den Zustand --> Anzahl der Zeichen.
-    charCountChange(event) {
-        this.setState({zeichen: event.target.value});
-    }
-
     render() {
 
         // Styling für die Buttons
@@ -46,10 +31,9 @@ export default class CreateProduct extends React.Component {
         // Styling für den Paper
         const paperStyle = {
             position: 'relative',
-            width: '50%',
-            marginTop: '50px',
+            width: '100%',
             marginBottom: '50px',
-            marginLeft: '-25%',
+            marginLeft: '-50%',
             left: '50%', /* in die Mitte verschieben */
             display: 'inline-block',
             borderRadius: '15px', // abgerundete Ecken
@@ -110,14 +94,11 @@ export default class CreateProduct extends React.Component {
             }
         ];
 
-        /* Iteration in map. Daten werden aus dem Array 'dataForLabelInput' geholt.*/
-
-
         return <div>
             <MuiThemeProvider>
                 <Paper id="paper" zDepth={5} style={paperStyle}>
                     <h2>{this.props.ueberschrift}</h2><br/>
-                    <ProductPictures/><br/>
+                    <ProductPictures anzBilder="3" add="true"/><br/>
                     {dataForLabelInput.map((data) => (
                          <LabelInput labelTitle={data.labelTitle}
                                      labelText={data.labelText}
@@ -125,7 +106,6 @@ export default class CreateProduct extends React.Component {
                                      rows = {data.rows}
                                      maxLength = {data.maxLength}
                                      fullWidth = {data.fullWidth}
-                                     onChange={(e)=>this.charCountChange(e)}
                          />
                     ))}
                     <RaisedButton label="Speichern" primary={true} style={style}/>
