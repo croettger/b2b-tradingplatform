@@ -94,6 +94,9 @@ export default class LabelInput extends React.Component {
                            errorText={(this.props.errorText!=null) ? this.props.errorText : this.state.errorText}
                            id = {this.props.id}
                            onChange={this.checkOnChange()}  // Verwaltung der Zeichenanzahl bei der Eingabe
+                           name={this.props.name}
+                           onFocus={this.props.onFocus}
+                           onBlur={this.props.onBlur}
                 />
             </MuiThemeProvider>
         </div>;
