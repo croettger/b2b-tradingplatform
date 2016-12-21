@@ -17,10 +17,14 @@ export default class Contact extends React.Component {
 
     render() {
 
+        // Styling für die Buttons
         const style = {
             position: 'relative',
+            width: '50%',
+            left: '50%',
+            marginLeft: '-25%',
             textAlign: 'center',
-            display: 'block'
+            display: 'inline-block'
         };
         // Styling für den Paper
         const paperStyle = {
@@ -33,7 +37,8 @@ export default class Contact extends React.Component {
         return  <div>
             <MuiThemeProvider>
                 <Paper id="paper" zDepth={2} style={paperStyle}>
-                <p>An dem Projekt arbeiten:<br/> Igor Stellmach <br/> Michael Stellmach <br/> Christof Roettger <br/> Hüsseyin Igci <br/> </p>
+                    <h1>Kontakt:</h1>
+                    <p>An dem Projekt arbeiten:<br/> Igor Stellmach <br/> Michael Stellmach <br/> Christof Roettger <br/> Hüsseyin Igci <br/> </p>
 
                     <LabelInput style={{width: '190px'}} labelTitle="Ihre Email-Adresse" labelText="Geben Sie Ihre Email ein" ></LabelInput>
                     <LabelInput labelTitle={'Ihre Nachricht:'}
@@ -42,7 +47,7 @@ export default class Contact extends React.Component {
                                 maxLength = {1024}
                                 fullWidth = {true}
                     />
-                    <RaisedButton label="Absenden" primary={true} href="#/register" style={style}/>
+                    <RaisedButton label="Absenden" primary={true} style={style}/>
                 </Paper>
             </MuiThemeProvider>
         </div>
