@@ -9,6 +9,7 @@ import BottomNavigationTest from './components/bottom/BottomNavigation';
 import Register from './components/registration/Register';
 import Profil from './components/profil/Profil';
 import CreateProduct from './components/product/CreateProduct';
+import Contact from './components/person_data/Contact';
 import PlaceAndOrder from './components/Orders/PlaceAnOrder';
 import MeineProdukte from './container/MeineProdukte';
 import MainPage from './container/MainPage';
@@ -46,6 +47,7 @@ ReactDOM.render((
             <Route path="/register" component={Register} />
             <Route path="/profil" component={Profil} />
             <Route path="/login" component={Login} />
+            <Route path="/contact" component={Contact} />
             <Route path="/createproduct" component={wrapComponent(CreateProduct,{ueberschrift: 'Neues Produkt erstellen'})}/>
             <Route path="/bestellungaufgeben" component={PlaceAndOrder}/>
             <Route path="/myproducts" component={MeineProdukte}/>
