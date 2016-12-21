@@ -27,8 +27,16 @@ export default class LabelInput extends React.Component {
     charCountChange(event) {
         this.setState({zeichen: event.target.value});
     }
+    //Prüft ob onChange gesetzt ist. Wenn nicht dann wird methode charCountChange zurückgeliefert
+    checkOnChange() {
+        if(this.props.onChange!=null)
+            return this.props.onChange;
+        else
+            return (e)=>this.charCountChange(e);
+    }
 
     render() {
+
         return <div>
             <label htmlFor="label" style={this.props.style}>{this.props.labelTitle}</label><br/>
             <MuiThemeProvider>
@@ -58,7 +66,7 @@ export default class LabelInput extends React.Component {
                            errorStyle={this.props.errorStyle}
                            errorText={this.props.errorText}
                            id = {this.props.id}
-                           onChange={this.props.onChange}  // Verwaltung der Zeichenanzahl bei der Eingabe
+                           onChange={this.checkOnChange()}  // Verwaltung der Zeichenanzahl bei der Eingabe
                 />
             </MuiThemeProvider>
         </div>;
