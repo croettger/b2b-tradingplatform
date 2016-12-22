@@ -8,9 +8,34 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 // Komponente für Label und TextField
 export default class LabelInput extends React.Component {
-    constructor() {
-        super();
-        this.state = {zeichen: ''} // Zustand --> Anzahl eingegebener Zeichen
+    constructor(props) {
+        super(props);
+        this.state = {zeichen: '', errorText: props.errorText, num: props.num} // Zustand --> Anzahl eingegebener Zeichen
+    }
+
+    //Erlaubt nur Zahle und Leerzeichen, wird ein Buchstabe eingegeben, kommt eine Meldung und die Eingabe wird zurückgesetzt
+    allowOnlyNumbers(event) {
+
+        let errorText1='Nur Zahlen eingeben!'
+            if (!event.target.value.match(/^[0-9]+$/) && event.target.value !='')
+            {
+                //Buchstabe wird am Ende der Zeichenkette gelöscht
+                event.target.value=event.target.value.substring(0,event.target.value.length-1);
+
+                event.target.focus();
+                this.setState({errorText: errorText1});
+            }
+    }
+    allowOnlyLetters(event) {
+        let errorText='Nur Buchstaben eingeben!'
+        if (!event.target.value.match(/^[a-zA-Z\s.]+$/) && event.target.value !='')
+        {
+            //Zahl wird am Ende der Zeichenkette gelöscht
+            event.target.value=event.target.value.substring(0,event.target.value.length-1);
+
+            event.target.focus();
+            this.setState({errorText: errorText})
+        }
     }
 
     // Methode liefert die Anzahl der noch verbleibenden Zeichen.
@@ -25,6 +50,8 @@ export default class LabelInput extends React.Component {
 
     // Methode verwaltet den Zustand --> Anzahl der Zeichen.
     charCountChange(event) {
+        if((this.state.num!=null))
+            {(this.state.num)? this.allowOnlyNumbers(event) : this.allowOnlyLetters(event) }
         this.setState({zeichen: event.target.value});
     }
     //Prüft ob onChange gesetzt ist. Wenn nicht dann wird methode charCountChange zurückgeliefert
@@ -64,9 +91,12 @@ export default class LabelInput extends React.Component {
                            rows = {this.props.rows}
                            textareaStyle={{borderStyle: 'solid', borderWidth: '1px', display: 'inline-block'}} // Rahmen
                            errorStyle={this.props.errorStyle}
-                           errorText={this.props.errorText}
+                           errorText={(this.props.errorText!=null) ? this.props.errorText : this.state.errorText}
                            id = {this.props.id}
                            onChange={this.checkOnChange()}  // Verwaltung der Zeichenanzahl bei der Eingabe
+                           name={this.props.name}
+                           onFocus={this.props.onFocus}
+                           onBlur={this.props.onBlur}
                 />
             </MuiThemeProvider>
         </div>;

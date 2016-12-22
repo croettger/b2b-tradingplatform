@@ -13,7 +13,7 @@ import ProductPictures from './ProductPictures';
 export default class CreateProduct extends React.Component {
     constructor() {
         super();
-        this.state = {zeichen: ''} // Zustand --> Anzahl eingegebener Zeichen
+        this.state = {errorText: ''} // Zustand --> Anzahl eingegebener Zeichen
     }
 
     render() {
@@ -47,43 +47,50 @@ export default class CreateProduct extends React.Component {
                 labelTitle: 'Produktname',
                 labelText: 'Bitte Produktname eingeben',
                 maxLength: '100',
-                fullWidth: 'true'
+                fullWidth: 'true',
+                num: false
             },
             {
                 labelTitle: 'Artikelnummer',
                 labelText: 'Bitte Artikelnummer eingeben',
                 maxLength: '15',
-                fullWidth: 'true'
+                fullWidth: 'true',
+                num: true
             },
             {
                 labelTitle: 'Preis',
                 labelText: 'Bitte den Preis eingeben',
                 maxLength: '15',
-                fullWidth: 'true'
+                fullWidth: 'true',
+                num: true
             },
             {
                 labelTitle: 'Anzahl',
                 labelText: 'Bitte die Anzahl eingeben',
                 maxLength: '10',
-                fullWidth: 'true'
+                fullWidth: 'true',
+                num: true
             },
             {
                 labelTitle: 'Größe',
                 labelText: 'Bitte die Größe eingeben',
                 maxLength: '10',
-                fullWidth: 'true'
+                fullWidth: 'true',
+                num: true
             },
             {
                 labelTitle: 'Hersteller',
                 labelText: 'Bitte den Hersteller eingeben',
                 maxLength: '25',
-                fullWidth: 'true'
+                fullWidth: 'true',
+                num: false
             },
             {
                 labelTitle: 'Kategorie',
                 labelText: 'Bitte Kategorie eingeben',
                 maxLength: '30',
-                fullWidth: 'true'
+                fullWidth: 'true',
+                num: false
             },
             {
                 labelTitle: 'Produktbeschreibung',
@@ -106,6 +113,7 @@ export default class CreateProduct extends React.Component {
                                      rows = {data.rows}
                                      maxLength = {data.maxLength}
                                      fullWidth = {data.fullWidth}
+                                     num = {data.num}
                          />
                     ))}
                     <RaisedButton label="Speichern" primary={true} style={style}/>
