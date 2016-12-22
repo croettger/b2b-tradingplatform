@@ -23,10 +23,12 @@ export default class Address extends React.Component {
             event.target.value=event.target.value.substring(0,event.target.value.length-1);
 
             event.target.focus();
+            //Errortext wird gesetzt
             this.setState(id.endsWith(1)?{errorName: errorText}:
                      id.endsWith(2)?{errorStrasse: errorText}:id.endsWith(4)?{errorStadt: errorText}:{errorLand: errorText});
         }
         else {
+            //Errortext wird gelöscht
             this.setState(id.endsWith(1)?{errorName: ''}:
                 id.endsWith(2)?{errorStrasse: ''}:id.endsWith(4)?{errorStadt: ''}:{errorLand: ''});
         }
@@ -45,9 +47,11 @@ export default class Address extends React.Component {
                 event.target.value=event.target.value.substring(0,event.target.value.length-1);
 
                 event.target.focus();
+                //Errortext wird gesetzt
                 this.setState({errorNr: errorText2});
             }
             else {
+                //Errortext wird gelöscht
                 this.setState({errorNr: ''});
             }
         }
@@ -58,9 +62,11 @@ export default class Address extends React.Component {
                 event.target.value=event.target.value.substring(0,event.target.value.length-1);
 
                 event.target.focus();
+                //Errortext wird gesetzt
                 this.setState({errorPlz: errorText1});
             }
             else {
+                //Errortext wird gelöscht
                 this.setState({errorPlz: ''});
             }
         }

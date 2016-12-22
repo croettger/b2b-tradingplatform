@@ -95,6 +95,7 @@ export default class PlaceAnOrder extends React.Component {
         const checkboxstyle = {marginLeft: '-5px'};
         const textAreaStyle= {width: '90%'};
 
+        //Variable Adresse bekommt einen Inhalt, je nach dem ob die Checkbox angeklickt wurde
         let address = null;
         const isChecked = this.state.checkbox;
         if(!isChecked)
@@ -102,6 +103,7 @@ export default class PlaceAnOrder extends React.Component {
         else
             if(this.state.firstSecondName!=''&&this.state.street!=''&&this.state.nr!=''&&this.state.city!=''&&this.state.plz!=''&&this.state.country!='')
             {
+                //Die bei der oberen Komponente eingegebene Adresse wird als Text unten angezeigt
                 address = <p style={{borderRadius: '10px', border: '1px solid'}}>&emsp;Folgende Rechnungsadresse wird berücksichtigt:<br/>
                         &emsp;{this.state.firstSecondName}<br/>
                         &emsp;{this.state.street} {this.state.nr}<br/>
@@ -109,7 +111,7 @@ export default class PlaceAnOrder extends React.Component {
                         &emsp;{this.state.country}</p>
             }
             else {
-                address=<p>Füllen Sie bitte alle Felder aus</p>
+                address=<p><strong>Füllen Sie bitte alle Felder aus!</strong></p>
             }
 
         return  <div>
