@@ -9,13 +9,15 @@ const config = require('./webpack.config.dev');
 const Inert = require('inert');
 
 const server = new Server();
-server.connection({port: 8080});
+server.connection({port: 3000});
 server.register(Inert, () => {
 });
 
 server.route({
     method:  'GET',
     path:    '/{param*}',
+    config: {
+    },
     handler: {
         directory: {
             path: path.join(__dirname, 'public/dist')

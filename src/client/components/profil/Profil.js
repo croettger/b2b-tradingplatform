@@ -5,7 +5,7 @@ import React from 'react';
 
 import Paper from 'material-ui/Paper';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
+import {fetchJson} from '../../backend/Backend';
 /*Components */
 import RaisedButton from 'material-ui/RaisedButton';
 import LabelInput from '../../LabelInput';
@@ -15,6 +15,23 @@ import Sidebar from './Sidebar';
 import {Card, CardMedia, CardTitle} from 'material-ui/Card';
 export default class Profil extends React.Component {
 
+    constructor(){
+        super();
+
+        this.state = {
+          allProfiles: []
+        };
+
+    }
+
+    componentDidMount() {
+        console.log('--> DidMount?');
+        fetchJson('/profile').then(profile => {
+            console.log(JSON.stringify(profile));
+        });
+
+        console.log('<--- DidMount')
+    }
 
     render() {
         const border = {width: '1000px'};
@@ -23,6 +40,7 @@ export default class Profil extends React.Component {
         const main = { display: 'inline-block', width: '700px', height: '100%'};
         const bottom = {clear: 'both', textAlign: 'center', paddingBottom:'15px'};
         const cardStyle = {width:'100%', height: '250px'};
+
         const CardExample = () => (
             <Card >
                 <CardMedia style={cardStyle} overlay={<CardTitle title="Unternehmen XY" subtitle="Slogan des Unternehmen" />}>

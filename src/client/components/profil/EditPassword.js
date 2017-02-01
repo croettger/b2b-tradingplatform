@@ -26,14 +26,9 @@ export default class EditPassword extends React.Component {
 
     /* Functions  */
 
-    // Speichert die Passworteingabe in die zugehörigen States!
-    handleChange(event) {
-
-    }
-
     validateInput() {
         console.log('-> Validation Passwort ');
-        var oldpw = this.state.oldPassword;
+        // var oldpw = this.state.oldPassword;
         var newpw = this.state.newPassword;
         var rptpw = this.state.repeatPassword;
 
@@ -46,7 +41,7 @@ export default class EditPassword extends React.Component {
             window.alert('Passwörter sind noch fehlerhaft!');
         } else {
             //2. Schritt - Überprüfe ob die oldPW und newPW identisch sind!
-            console.log('Alles OKAY!');
+            console.log('Passwörter sind gesetzt!');
 
             // TODO: Überprüfen ob oldPW auch wirklich das alte Passwort ist
             // TODO: Gehasht zur DB schicken
@@ -104,13 +99,13 @@ export default class EditPassword extends React.Component {
 
         return (<div style={this.props.style}>
             <LabelInput type="password" underlineShow={false} inputStyle={borderStyle} errorText={this.state.oldPWerrorText} onFocus={e =>this.clearErrorText(e)} name="oldPassword" labelTitle="Altes Passwort"
-                        value={this.state.oldPassword} onChange={(e) => this.handleChange(e)} onBlur={e => this.onBlur(e)}
+                        value={this.state.oldPassword}  onBlur={e => this.onBlur(e)}
                         labelText="Altes Passwort"/>
             <LabelInput type="password" underlineShow={false} inputStyle={borderStyle} errorText={this.state.newPWerrorText} onFocus={e =>this.clearErrorText(e)} name="newPassword" labelTitle="Neues Passwort"
-                        value={this.state.newPassword} onChange={(e) => this.handleChange(e)} onBlur={e => this.onBlur(e)}
+                        value={this.state.newPassword} onBlur={e => this.onBlur(e)}
                         labelText="Neues Passwort"/>
             <LabelInput type="password" underlineShow={false} inputStyle={borderStyle} errorText={this.state.rptPWerrorText} onFocus={e =>this.clearErrorText(e)} name="repeatPassword" labelTitle="Passwort wiederholen"
-                        value={this.state.repeatPassword} onChange={(e) => this.handleChange(e)} onBlur={e => this.onBlur(e)}
+                        value={this.state.repeatPassword}onBlur={e => this.onBlur(e)}
                         labelText="Passwort wiederholen"/>
             <center><RaisedButton secondary={true} label="Passwort ändern" style={buttonStyle}
                                   onClick={() => this.validateInput()}/></center>

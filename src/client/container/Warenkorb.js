@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import Produkt from './../components/product/Produkt';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export default class Warenkorb extends React.Component {
 
